@@ -64,12 +64,6 @@ python car_detect.py detect --model yolov5s.onnx --source /path/to/video.mp4 --c
 ]
 ```
 
-## Why this is more efficient than a notebook
-- Single **model init** reused across all inputs (no reloading).
-- **OpenCV DNN + ONNX** avoids Python/Torch overhead in inference-only runs.
-- **Vectorized NMS** (NumPy) and one-pass **letterbox** + coordinate mapping.
-- Streaming **video writer** initialized lazily to avoid overhead.
-
 ## Class mapping (COCO default)
 We map names to IDs: `bicycle=1, car=2, motorcycle=3, bus=5, train=6, truck=7`.  
 If your model uses different indices, pass `--class-ids` explicitly.
