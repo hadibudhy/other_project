@@ -59,10 +59,3 @@ Options:
 - JSON with per-image detections (bbox, confidence, recognized text)
 - Optional cropped plate images in `crops/`
 
-## Why this is more efficient than the notebook
-
-- Uses **OpenCV DNN** to run the ONNX model with minimal overhead.
-- Vectorized **NMS** and post-processing in NumPy.
-- One-shot **letterbox** and batch-safe preprocessing.
-- OCR preprocessing (bilateral + adaptive threshold + morphology) boosts accuracy without heavy cost.
-- Avoids repeated model initialization; reuses the same network for all frames/images.
